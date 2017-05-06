@@ -13,8 +13,8 @@ function assign (target, source) { // eslint-disable-line no-unused-vars
         }
     }
 
-    return target
-}
+    return target;
+};
 
 module.exports.install = function (Vue, options = {}) {
     const isVueNext = Vue.version.split('.')[0] === '2'
@@ -24,12 +24,12 @@ module.exports.install = function (Vue, options = {}) {
         canSuccess: true,
         show: false,
         color: '#73ccec',
+        fontColor: 'red',
         failedColor: 'red',
         thickness: '2px',
         transition: {
             speed: '0.2s',
-            opacity: '0.6s',
-            termination: 300
+            opacity: '0.6s'
         },
         autoRevert: true,
         location: 'top',
@@ -90,7 +90,7 @@ module.exports.install = function (Vue, options = {}) {
                         }, 300)
                     }
                 })
-            }, this.$vm.RADON_LOADING_BAR.options.transition.termination)
+            }, 800)
         },
         pause () {
             clearInterval(this.state.timer)
@@ -107,6 +107,9 @@ module.exports.install = function (Vue, options = {}) {
         },
         setFailColor (color) {
             this.$vm.RADON_LOADING_BAR.options.failedColor = color
+        },
+        setFontColor (color) {
+            this.$vm.RADON_LOADING_BAR.options.fontColor = color
         },
         setColor (color) {
             this.$vm.RADON_LOADING_BAR.options.color = color
